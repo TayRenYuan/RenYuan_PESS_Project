@@ -8,12 +8,18 @@
 
 <script>
 function validateForm() {
-  var x = document.forms["frmLogCall"]["rycontactNo"].value;
-  if (isNaN(x) || x < 60000000 || x > 99999999) {
-    alert("Contact Number is incorrect!\n Please re-enter a 8 Digital Numbers again.\n *The Number must start with 6-9!");
-    return false;
-  }
+var rycontactNo = document.forms["frmLogCall"]
+["rycontactNo"].value;
+var firstdigit = rycontactNo[0];
+		  
+if ((isNaN(rycontactNo) || firstdigit != 6 && firstdigit != 8 && firstdigit != 9) || rycontactNo.length != 8)
+{
+alert("Contact Number is incorrect!\n Please re-enter a 8 Digital Numbers again.\n *The Number must start with 6, 8 or 9!");
+document.getElementById("rycontactNo").focus();
+return false;
 }
+}
+
 </script>
 <style>
 body {background-color: ;}	
